@@ -1,5 +1,7 @@
 import * as CryptoJS from "crypto-js";
 
+const MILLISECONS_IN_1_SECOND = 1000
+
 class Block {
   public index: number;
   public hash: string;
@@ -37,7 +39,7 @@ const getBlockchain = () : Block[] => blockchain;
 
 const getLatestBlock = () : Block => blockchain[blockchain.length - 1];
 
-const getNewTimeStamp = () : number => Math.round(new Date().getTime() / 1000);
+const getNewTimeStamp = () : number => Math.round(new Date().getTime() / MILLISECONS_IN_1_SECOND);
 
 const createNewBlock = (data:string) : Block => {
   const previousBlock : Block = getLatestBlock();
